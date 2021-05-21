@@ -1,11 +1,13 @@
  const express = require('express');
  const path = require('path');
- const app = express();
  const morgan = require('morgan');
  const mysql = require('mysql');
  const myconnection = require('express-myconnection');
 
+ const app = express();
 
+ //import Routes
+ const empleadosRoutes = require('./routes/empleado');
 
  //configuraciones 
  app.set('port', process.env.PORT || 3000);
@@ -23,7 +25,10 @@
  }, 'single'));
 
  //Routes
- 
+ app.use('/', empleadosRoutes);
+
+ //static files
+ app.use(express.static(path.join(__dirname, 'public')));
 
  // starting the server
 
