@@ -8,6 +8,7 @@
 
  //import Routes
  const empleadosRoutes = require('./routes/empleado');
+const { urlencoded } = require('express');
 
  //configuraciones 
  app.set('port', process.env.PORT || 3000);
@@ -23,6 +24,7 @@
      port: 3306,
      database: 'panaderia'
  }, 'single'));
+ app.use(express.urlencoded({extended: false}));
 
  //Routes
  app.use('/', empleadosRoutes);
