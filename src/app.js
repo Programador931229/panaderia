@@ -3,12 +3,15 @@
  const morgan = require('morgan');
  const mysql = require('mysql');
  const myconnection = require('express-myconnection');
-
+ const bcryptjs = require('bcryptjs');
+ const dotenv = require('dotenv');
+ const sesion = require('express-session');
+ 
  const app = express();
 
  //import Routes
- const empleadosRoutes = require('./routes/empleado');
-const { urlencoded } = require('express');
+ const inicioRoutes = require('./routes/inicio');
+ const { urlencoded } = require('express');
 
  //configuraciones 
  app.set('port', process.env.PORT || 3000);
@@ -25,16 +28,21 @@ const { urlencoded } = require('express');
      database: 'panaderia'
  }, 'single'));
  app.use(express.urlencoded({extended: false}));
+ dotenv.config({path:'./env/.env'});
+ 
+ app.use(sesion({
+     secret: 'secret',
+     resave: true,
+     saveUninitialized: true
+ }));
 
  //Routes
- app.use('/', empleadosRoutes);
+ app.use('/', inicioRoutes);
 
  //static files
  app.use(express.static(path.join(__dirname, 'public')));
-
+ 
  // starting the server
-
-
  app.listen(app.get('port'), () => {
      console.log('Server en puerto 3000');
  });

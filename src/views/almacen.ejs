@@ -1,0 +1,66 @@
+<%- include('partials/_header')%>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-bordered table-hover text-center" style="background-color: white;">
+                <div class="text-center text-white bg-primary h5">
+                    <p>Lista de materias primas</p>
+                </div>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Existencia</th>
+                        <th>Precio Kg</th>
+                        <th>Precio Neto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data){%>
+                        <% for (var i = 0; i < data.length; i++){%>
+                        <tr>
+                            <td><%= data[i].id_materia_prima %> </td>
+                            <td><%= data[i].nombre_materia_prima %></td>
+                            <td><%= data[i].existencia_materia_prima%> Kg</td>
+                            <td>$<%= data[i].precio_unitario %> pesos</td>
+                            <td>$<%= data[i].precio_neto%> pesos</td>
+                            <td>
+                                <a href="/eliminarMateria/<%= data[i].id_materia_prima %>" class="btn btn-danger">Eliminar</a>
+                                <a href="/editarMateria/<%= data[i].id_materia_prima %>" class="btn btn-info">Editar</a>
+                            </td>
+                        </tr>
+                        <% }%>
+                    <%} %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <p>Registro de Materias Primas</p>
+                    </div>
+                    <form action="/agregarMateria" method="post" style="background-color: white;">
+                        <div class="form-group mb-3">
+                            <input class="form-control" type="text" name="nombre_materia_prima" placeholder="Nombre de materia prima">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input class="form-control" type="number" name="existencia_materia_prima" placeholder="Existencia">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input class="form-control" type="number" name="precio_unitario" placeholder="Precio unitario">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input class="form-control" type="number" name="precio_neto" placeholder="Precio Neto">
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Registrar</button>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer')%>

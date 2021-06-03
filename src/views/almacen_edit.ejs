@@ -1,0 +1,37 @@
+<%- include('partials/_header') %>
+<div class="container mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <p>Edición de Materias Primas</p>
+                    </div>
+                    <form action="/actualizarMateria/<%= data.id_materia_prima %>" method="POST" style="background-color: white;">
+                        <div class="form-group mb-3">
+                            <label for="nom" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Nombre de materia prima</label>
+                            <input class="form-control" type="text" id="nom" name="nombre_materia_prima" value="<%= data.nombre_materia_prima%>" placeholder="Nombre de materia prima">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="exis" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Existencia</label>
+                            <input class="form-control" type="number" id="exis" name="existencia_materia_prima" value="<%= data.existencia_materia_prima%>" placeholder="Existencia">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="precU" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Precio unitario</label>
+                            <input class="form-control" type="number" id="precU" name="precio_unitario" value="<%= data.precio_unitario%>" placeholder="Precio unitario">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="precN" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Precio neto</label>
+                            <input class="form-control" type="number" id="precN" name="precio_neto" value="<%= (data.precio_unitario * data.existencia_materia_prima)%>" placeholder="Precio Neto">
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>  
+                            <a href="/almacen" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer') %>

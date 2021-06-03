@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/main.css">
+        <title>Dulce Pan</title>
+    </head>
+    <body class="align-items-center" style="background-image:url(img/fondo-panaderia.PNG); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;">
+    <div class="container col-lg-5 col-auto p-5 text-center">        
+        <div class="card" style="background:rgba(0, 0, 0, 0.5)">
+            <div class="card-header text-white">
+                <h3 class="encabezado">Inicio de Sesión</h3>
+            </div>
+            <div class="card-body">
+                <form action="/entrar" method="POST">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Correo@example.com" name="correo" required>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Contraseña" name="clave" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="submit" class="btn btn-primary col-lg-7" value="Entrar">
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links text-white">
+                            Don't have an account?<a href="/registro" style="font-size: 14pt;">Sign Up</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/91edbebc85.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(typeof alert != "undefined"){ %>
+        <script>
+            swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(()=>{
+                window.location = '/<%= ruta %>'
+            })
+        </script>
+    <%}%>
+    </body>
+</html>

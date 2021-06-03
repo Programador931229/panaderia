@@ -1,0 +1,28 @@
+body {
+    background-color:whitesmoke;
+}
+
+.encabezado {
+    color:whitesmoke;
+}
+
+header{
+    background-color:rgb(135, 54, 0);
+}
+nav{
+    font-size: 130%;
+    font-family: sans-serif;
+    background-color:rgb(160, 64, 0);
+}
+
+.img{
+    height: 450px;
+}
+
+footer{
+    background-color: rgb(135, 54, 0);
+    font-family: sans-serif;
+    color: white;
+    margin: 1px;
+    padding: 10px;
+}

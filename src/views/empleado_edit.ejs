@@ -1,32 +1,32 @@
 <%- include('partials/_header')%>
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-5">
-            <div class="card">
-                <div class="card-body">
-                    <form action="/update/<%= data.id_persona %>" method="POST">
-                        <div class="form-group mb-3">
-                            <input class="form-control" type="text" name="nombre" value="<%= data.nombre%>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <input class="form-control" type="text" name="apellido_paterno" value="<%= data.apellido_paterno%>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <input class="form-control" type="text" name="apellido_materno" value="<%= data.apellido_materno%>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <input class="form-control" type="text" name="codigo_postal" value="<%= data.codigo_postal%>">
-                        </div>
-                        <div class="form-group mb-3">
-                            <input class="form-control" type="text" name="id_genero" value="<%= data.id_genero%>">
-                        </div>
-                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
-                            <button type="submit" class="btn btn-primary">Registrar</button>  
-                        </div>
-                    </form>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/update/<%= data.id_persona %>" method="POST">
+                            <div class="form-group mb-3">
+                                <input class="form-control" type="text" name="nombre" value="<%= data.nombre%>">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input class="form-control" type="text" name="apellido_paterno" value="<%= data.apellido_paterno%>">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input class="form-control" type="text" name="apellido_materno" value="<%= data.apellido_materno%>">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input class="form-control" type="text" name="codigo_postal" value="<%= data.codigo_postal%>">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input class="form-control" type="text" name="id_genero" value="<%= data.id_genero%>">
+                            </div>
+                            <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                                <button type="submit" class="btn btn-primary">Registrar</button>  
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <%- include('partials/_footer')%>

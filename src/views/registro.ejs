@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/main.css">
+        <title>Dulce Pan</title>
+    </head>
+    <body class="align-items-center" style="background-image:url(img/fondo-panaderia.PNG); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;">
+        <div class="container col-lg-5 col-auto p-5 text-center">
+            <div class="card" style="background:rgba(0, 0, 0, 0.5)">
+                <div class="card-header text-white text-center mb-4">
+                    <h3>Registro de usuario</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/registrar" method="POST">
+                        <div class="mb-3 form-group text-left">
+                          <label for="nombre_usuario" class="form-label text-white" style="font-family: sans-serif; font-size: 14pt;">Nombre de usuario</label>
+                          <input type="text" style="border: none; border-bottom: 1px solid #fff; font-size: 16pt; font-family: sans-serif;" class="form-control bg-transparent text-white" name="nombre_usuario" required>
+                        </div>
+                        <div class="mb-3 form-group text-left">
+                            <label for="correo" class="form-label text-white" style="font-family: sans-serif; font-size: 14pt;">Correo electrónico</label>
+                            <input type="email" style="border: none; border-bottom: 1px solid #fff; font-size: 16pt; font-family: sans-serif;" class="form-control bg-transparent text-white" name="correo" required>
+                          </div>
+                        <div class="mb-3 form-group text-left">
+                          <label for="clave" class="form-label text-white" style="font-family: sans-serif; font-size: 14pt;">Contraseña</label>
+                          <input type="password" style="border: none; border-bottom: 1px solid #fff; font-size: 16pt; font-family: sans-serif;" class="form-control bg-transparent text-white" name="clave" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn btn-primary col-lg-7">Guardar</button>
+                        </div>
+                        <div class="form-group">
+                            <a href="/" class="btn btn-dark col-lg-7">cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <script src="https://kit.fontawesome.com/91edbebc85.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    </body>
+</html>
