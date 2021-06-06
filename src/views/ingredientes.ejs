@@ -1,0 +1,68 @@
+<%- include('partials/_header') %>
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-bordered table-hover text-center" style="background-color: white;">
+                <div class="text-center text-white bg-primary h5">
+                    <div class="text-center text-white bg-primary h5">
+                            <p>Ingredientes de <%= data3[0].nombre_producto%></p>
+                    </div>
+                </div>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if (data){%>
+                        <% for (var i = 0; i < data1.length; i++){%>
+                        <tr>
+                            <td><%= data1[i].id_ingrediente %></td>
+                            <td><%= data1[i].nombre_materia_prima %></td>
+                            <td><%= data1[i].cantidad_ingrediente %></td>
+                            <td>
+                                <a href="/editarIngrediente/<%= data1[i].id_ingrediente %>" class="btn btn-info">Editar</a>
+                                <a href="/eliminarIngrediente/<%= data1[i].id_ingrediente %>" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                        <% }%>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <p>Registro de Ingredientes</p>
+                    </div>
+                    <form action="/agregarIngrediente" method="post" style="background-color: white;">
+                        <div class="form-group mb-3">
+                            <label for="id_materia">Selecciona materia prima</label>
+                            <select class="form-select dropdown-toggle" name="id_materia_prima" id="id_materia">
+                                <% for(const i in data2){ %>
+                                    <option value="<%= data2[i].id_materia_prima%>"> <%=data2[i].nombre_materia_prima%> </option>    
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="id_producto">id del producto</label>
+                            <input class="form-control" type="number" id="id_producto" name="id_producto" value="<%= data %>" required readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="cantidad">Cantidad</label>
+                            <input class="form-control" type="number" step="0.0001" name="cantidad_ingrediente" id="cantidad" placeholder="Cantidad de ingrediente" required>
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Registrar</button>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer') %>

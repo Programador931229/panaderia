@@ -1,0 +1,77 @@
+<%- include('partials/_header')%>
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-bordered table-hover text-center" style="background-color: white;">
+                <div class="text-center text-white bg-primary h5">
+                    <p>Lista de Productos</p>
+                </div>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>imagen</th>
+                        <th>Nombre</th>
+                        <th>Existencia</th>
+                        <th>Precio</th>
+                        <th>fecha de caducidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if (data){%>
+                        <% for (var i = 0; i < data.length; i++){%>
+                        <tr>
+                            <td><%= data[i].id_producto %></td>
+                            <td><img src="/img/productos/<%= data[i].imagen %>" alt="producto" height="50" width="70"></td>
+                            <td><%= data[i].nombre_producto %></td>
+                            <td><%= data[i].existencia_producto %> pz</td>
+                            <td>$<%= data[i].precio_producto %>pesos</td>
+                            <td><%= data[i].fecha_caducidad %></td>
+                            <td>
+                                <a href="/ingredientes/<%= data[i].id_producto %>" class="btn btn-warning">Ingredientes</a>
+                                <a href="/editarProducto/<%= data[i].id_producto %>" class="btn btn-info">Editar</a>
+                                <a href="/eliminarProducto/<%= data[i].id_producto %>" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                        <% }%>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <p>Registro de Productos</p>
+                    </div>
+                    <form action="/agregarProducto" method="post" style="background-color: white;" enctype="multipart/form-data">
+                        <div class="form-group mb-3">
+                            <label for="nombre">Nombre del producto</label>
+                            <input class="form-control" type="text" name="nombre_producto" id="nombre" placeholder="Nombre de producto" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="existencia">Piezas en existencia</label>
+                            <input class="form-control" type="number" id="existencia" name="existencia_producto" placeholder="Existencia" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="Precio">Precio del prodcto</label>
+                            <input class="form-control" type="number" name="precio_producto" id="Precio" placeholder="Precio unitario" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="fecha">Fecha de caducidad</label>
+                            <input class="form-control" type="date" name="fecha_caducidad" id="fecha" placeholder="YYYY-MM-DD" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="imagen">Subir imagen del producto</label>
+                            <input class="form-control" id="imagen" type="file" accept="image/*" required name="imagen"/>
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Registrar</button>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer') %>

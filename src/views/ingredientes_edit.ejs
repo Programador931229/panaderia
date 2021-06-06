@@ -1,0 +1,35 @@
+<%- include('partials/_header')%>
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <p>Editar ingrediente</p>
+                    </div>
+                    <form action="/actualizarIngrediente/<%= data.id_ingrediente%>" method="post" style="background-color: white;">
+                        <div class="form-group mb-3">
+                            <label for="id_materia">id materia prima</label>
+                            <input class="form-control" type="number" id="id_materia" name="id_materia_prima" value="<%= data.id_materia_prima %>" required readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="id_producto">id del producto</label>
+                            <input class="form-control" type="number" id="id_producto" name="id_producto" value="<%= data.id_producto %>" required readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="cantidad">Cantidad</label>
+                            <input class="form-control" type="number" step="0.0001" name="cantidad_ingrediente" id="cantidad" placeholder="Cantidad de ingrediente" required>
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>  
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <a href="/ingredientes/<%=data.id_producto%>" class="btn btn-danger text-white">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer')%>

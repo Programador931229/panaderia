@@ -1,0 +1,41 @@
+<%- include('partials/_header') %>
+<div class="container mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <p>Edición de Productos</p>
+                    </div>
+                    <form action="/actualizarProducto/<%= data.id_producto %>" method="POST" style="background-color: white;" enctype="multipart/form-data">
+                        <div class="form-group mb-3">
+                            <label for="nom" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Nombre de producto</label>
+                            <input class="form-control" type="text" id="nom" name="nombre_producto" value="<%= data.nombre_producto%>" placeholder="Nombre de producto" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="exis" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Cantidad en existencia</label>
+                            <input class="form-control" type="number" id="exis" name="existencia_producto" value="<%= data.existencia_producto%>" placeholder="Existencia" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="precU" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Precio del producto</label>
+                            <input class="form-control" type="number" id="precU" name="precio_producto" value="<%= data.precio_producto%>" placeholder="Precio de producto" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="fecha" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Fecha de caducidad</label>
+                            <input class="form-control" type="date" id="fecha" name="fecha_caducidad" value="<%= data.fecha_caducidad%>" placeholder="Fecha de caducidad" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="imagen" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Subir imagen del producto</label>
+                            <input class="form-control" id="imagen" type="file" accept="image/*" required name="imagen"/>
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>  
+                            <a href="/productos" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer') %>
