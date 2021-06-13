@@ -23,6 +23,12 @@ controller.logIn = (req, res) =>{
                 })
             }
             else{
+                req.session.correo = results[0].correo;
+                req.session.empleado = results[0].id_empleado;
+                req.session.usuario = results[0].id_usuario;
+                req.session.nombre = results[0].nombre_usuario;
+                req.session.rol = results[0].id_rol;
+                req.session.validado = true; 
                 res.render('inicio', {
                     alert: true,
                     alertTitle: "Operación exitosa",
@@ -38,7 +44,16 @@ controller.logIn = (req, res) =>{
 };
 
 controller.principal = (req, res) =>{
-    res.render('principal');
+    if(req.session.validado){
+        res.render('principal', {
+            login: true,
+            empleado: req.session.empleado,
+            correo: req.session.correo,
+            usuario: req.session.usuario,
+            nombre: req.session.nombre,
+            rol: req.session.rol
+        });
+    }
 }
 
 controller.signUp = (req, res) =>{
@@ -58,5 +73,11 @@ controller.save = (req, res) =>{
         });
     });
 };
+
+controller.salir = (req, res) =>{
+    req.session.destroy(() =>{
+        res.redirect('/');
+    })
+}
 
 module.exports = controller;

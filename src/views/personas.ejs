@@ -1,0 +1,56 @@
+<%- include('partials/_header')%>
+</header>
+    <div class="container mb-3">
+        <div class="row justify-content-center">
+            <div class="col col-lg-7">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center text-white bg-primary h5">
+                            <h4>Registro de Personas</h4>
+                        </div>
+                        <form action="/agregarPersona" method="POST" style="background-color: white;">
+                            <div class="form-group mb-3">
+                                <label for="nom" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Nombre</label>
+                                <input class="form-control" type="text" id="nom" name="nombre" placeholder="Nombre">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="a_pat" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Apellido paterno</label>
+                                <input class="form-control" type="text" id="a_pat" name="apellido_paterno" placeholder="Apellido paterno">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="a_mat" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Apellido materno</label>
+                                <input class="form-control" type="text" id="a_mat" name="apellido_materno" placeholder="Apellido materno">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="codigo">Código postal</label>
+                                <select class="form-select dropdown-toggle" name="codigo_postal" id="codigo">
+                                    <% for(const i in data1){ %>
+                                        <option value="<%= data1[i].id_ciudad%>"> <%=data1[i].nombre_ciudad%> </option>    
+                                    <%}%>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="genero">Género</label>
+                                <select class="form-select dropdown-toggle" name="id_genero" id="genero">
+                                    <% for(const i in data2){ %>
+                                        <option value="<%= data2[i].id_genero%>"> <%=data2[i].nombre_genero%> </option>    
+                                    <%}%>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="tipo">Tipo de persona</label>
+                                <select class="form-select dropdown-toggle" name="tipo" id="tipo">
+                                    <option value="1"> Empleado </option>    
+                                    <option value="2"> Proveedor </option>    
+                                </select>
+                            </div>
+                            <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                                <button type="submit" class="btn btn-success">Siguiente</button>  
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('partials/_footer')%>

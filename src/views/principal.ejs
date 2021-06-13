@@ -1,4 +1,139 @@
 <%- include('partials/_header') %>
+<%if(rol === 1){%>
+  <nav class="navbar navbar-expand-lg navbar-dark mb-3">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white id" href="/principal"><span><i class="fas fa-home"></i> Home</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white id ms-1 me-1" href="/almacen"> <span><i class="fas fa-box-open"></i></span> Almacen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white id ms-1 me-1" href="/productos"><span><i class="fas fa-bread-slice"></i></span> Productos </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white ms-1 me-1 id" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span><i class="fas fa-user-friends"></i></span> Personas
+            </a>
+            <ul class="dropdown-menu" style="background-color: rgb(135, 54, 0);" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-white a" href="/Personas"> <span><i class="far fa-plus-square"></i></span> Nueva Persona</a></li>
+              <li><a class="dropdown-item text-white a" href="/listaEmpleados">Empleados</a></li>
+              <li><a class="dropdown-item text-white a" href="/listaProveedores">Proveedores</a></li>
+            </ul>
+          </li>
+          <li class="nav-item ms-1 me-1">
+            <a class="nav-link text-white" href="/listaUsuarios"><span><i class="fas fa-id-card"></i></span> Usuarios</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white id me-1 ms-1" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span><i class="fas fa-cookie"></i></span> Producciones
+            </a>
+            <ul class="dropdown-menu" style="background-color: rgb(135, 54, 0);" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-white a" href="/produccion"><span><i class="far fa-plus-square"></i></span> Nueva Producción</a></li>
+              <li><a class="dropdown-item text-white a" href="/produccionesList"><span><i class="fas fa-list"></i></span> Producciones</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white id ms-1 me-1" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span><i class="fas fa-truck-loading"></i></span> Entradas
+            </a>
+            <ul class="dropdown-menu" style="background-color: rgb(135, 54, 0);" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-white a ms-1 me-1" href="/entradas"><span><i class="fas fa-plus-square"></i></span> Nueva Entrada</a></li>
+              <li><a class="dropdown-item text-white a ms-1 me-1" href="/entradasList"><span><i class="fas fa-list"></i></span> Entradas</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav mb-2 me-3 text-right">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white id" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>Usuario <i class="fas fa-user-circle"></i></span>
+            </a>
+            <ul class="dropdown-menu" style="background-color: rgb(135, 54, 0);" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-white a" href="/editarUsuario"><i class="fas fa-user-edit"></i> Editar Usuario </a></li>          
+              <li><a class="dropdown-item text-white a" href="/salir"><i class="fas fa-sign-out-alt"></i> Cerrar sesión </a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<% } else if(rol === 2){ %>
+  <nav class="navbar navbar-expand-lg navbar-dark mb-3">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white id" href="/principal"><span><i class="fas fa-home"></i> Home</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white id ms-1 me-1" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span><i class="fas fa-truck-loading"></i></span> Entradas
+            </a>
+            <ul class="dropdown-menu" style="background-color: rgb(135, 54, 0);" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-white a ms-1 me-1" href="/entradas"><span><i class="fas fa-plus-square"></i></span> Nueva Entrada</a></li>
+              <li><a class="dropdown-item text-white a ms-1 me-1" href="/entradasList"><span><i class="fas fa-list"></i></span> Entradas</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav mb-2 me-3 text-right">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white id" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>Usuario <i class="fas fa-user-circle"></i></span>
+            </a>
+            <ul class="dropdown-menu" style="background-color: rgb(135, 54, 0);" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-white a" href="/editarUsuario"><i class="fas fa-user-edit"></i> Editar Usuario </a></li>          
+              <li><a class="dropdown-item text-white a" href="/salir"><i class="fas fa-sign-out-alt"></i> Cerrar sesión </a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<% } else{ %>
+  <nav class="navbar navbar-expand-lg navbar-dark mb-3">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white id" href="/principal"><span><i class="fas fa-home"></i> Home</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white id me-1 ms-1" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span><i class="fas fa-cookie"></i></span> Producciones
+            </a>
+            <ul class="dropdown-menu" style="background-color: rgb(135, 54, 0);" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-white a" href="/produccion"><span><i class="far fa-plus-square"></i></span> Nueva Producción</a></li>
+              <li><a class="dropdown-item text-white a" href="/produccionesList"><span><i class="fas fa-list"></i></span> Producciones</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav mb-2 me-3 text-right">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white id" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>Usuario <i class="fas fa-user-circle"></i></span>
+            </a>
+            <ul class="dropdown-menu" style="background-color: rgb(135, 54, 0);" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-white a" href="/editarUsuario"><i class="fas fa-user-edit"></i> Editar Usuario </a></li>          
+              <li><a class="dropdown-item text-white a" href="/salir"><i class="fas fa-sign-out-alt"></i> Cerrar sesión </a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<% } %>
+</header>
 <div class="mb-3">
     <div class="container">
         <div class="row justify-content-md-center">
@@ -29,6 +164,14 @@
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
+            </div>
+            <div class="col">
+              <div class="card" style="width: 24rem;">
+                <div class="card-body bg-primary text-white">
+                  <h5 class="card-title">Datos de la sesión</h5>
+                  <p class="card-text">No. de usuario: <%= usuario %> <br> usuario: <%= nombre %> <br> correo: <%= correo %></p>
+                </div>
+              </div>
             </div>
         </div>
     </div>

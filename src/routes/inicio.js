@@ -7,6 +7,9 @@ const inicioController = require('../controllers/inicioController');
 const almacenController = require('../controllers/almacenController');
 const productoController = require('../controllers/productoController');
 const ingredienteController = require('../controllers/ingredienteController');
+const personasController = require('../controllers/personasController');
+const produccionController = require('../controllers/produccionController');
+const entradasController = require('../controllers/entradasController');
 
 //Configuracion de Multer
 const storage = multer.diskStorage({
@@ -33,12 +36,12 @@ const upload = multer({
 }).single('imagen');
 
 //Rutas de Inicio de Sesión
-
 router.get('/', inicioController.start);
 router.post('/entrar', inicioController.logIn);
 router.get('/registro', inicioController.signUp);
 router.post('/registrar', inicioController.save);
 router.get('/principal', inicioController.principal);
+router.get('/salir', inicioController.salir);
 
 //Rutas de Almacen
 router.get('/almacen', almacenController.alamacen);
@@ -60,4 +63,30 @@ router.post('/agregarIngrediente', ingredienteController.registrarIngrediente);
 router.get('/editarIngrediente/:id', ingredienteController.editarIngrediente);
 router.get('/eliminarIngrediente/:id', ingredienteController.eliminarIngrediente);
 
+//Rutas de Personas
+router.get('/personas', personasController.personas);
+router.post('/agregarPersona', personasController.agregarPersona);
+router.post('/agregarEmpleado', personasController.agregarEmpleado);
+router.post('/agregarProveedor', personasController.agregarProveedor);
+router.post('/registrarUsuario', personasController.registrarUsuario);
+router.get('/listaEmpleados', personasController.listaEmpleados);
+router.get('/listaProveedores', personasController.listaProveedores);
+router.get('/listaUsuarios', personasController.listaUsuarios);
+router.get('/editarUsuario', personasController.editarUsuario);
+router.post('/modificarUsuario', personasController.modificarUsuario);
+
+//Rutas de producciones
+router.get('/produccion', produccionController.produccion);
+router.post('/agregarProduccion', produccionController.agregarProduccion);
+router.post('/producirPan', produccionController.producirPan);
+router.get('/produccionesList', produccionController.produccionesList);
+router.get('/produccionDetalle/:id', produccionController.produccionDetalle);
+
+//Rutas de Entradas
+
+router.get('/entradas', entradasController.entradas);
+router.post('/agregarEntrada', entradasController.agregarEntrada);
+router.post('/detalleEntrada', entradasController.detalleEntrada);
+router.get('/entradasList', entradasController.entradasList);
+router.get('/entradaDetalle/:id', entradasController.entradaDetalle);
 module.exports = router; 

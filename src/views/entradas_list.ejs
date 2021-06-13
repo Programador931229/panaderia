@@ -1,0 +1,40 @@
+<%- include('partials/_header')%>
+</header>
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-10">
+            <table class="table table-bordered table-hover text-center" style="background-color: white;">
+                <div class="text-center text-white bg-primary h5">
+                    <div class="text-center text-white bg-primary h5">
+                            <h4>Lista de entradas</h4>
+                    </div>
+                </div>
+                <thead>
+                    <tr>
+                        <th>identificador de entrada</th>
+                        <th>identificador de empleado</th>
+                        <th>identificador de proveedor</th>
+                        <th>Fecha de entrada</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if (data){%>
+                        <% for (var i = 0; i < data.length; i++){%>
+                        <tr>
+                            <td><%=data[i].id_entrada%></td>
+                            <td><%=data[i].id_empleado%></td>
+                            <td><%=data[i].id_proveedor%></td>
+                            <td><%=data[i].fecha_entrada%></td>
+                            <td>
+                                <a href="/entradaDetalle/<%= data[i].id_entrada %>" class="btn btn-info">detalles</a>
+                            </td>
+                        </tr>
+                        <% }%>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer')%>

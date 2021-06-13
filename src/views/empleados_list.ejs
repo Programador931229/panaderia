@@ -1,0 +1,42 @@
+<%- include('partials/_header')%>
+</header>
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-10">
+            <table class="table table-bordered table-hover text-center" style="background-color: white;">
+                <div class="text-center text-white bg-primary h5">
+                    <div class="text-center text-white bg-primary h5">
+                            <h4>Lista de empleados</h4>
+                    </div>
+                </div>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Apellido paterno</th>
+                        <th>Apellido materno</th>
+                        <th>Turno</th>
+                        <th>Cargo</th>
+                        <th>Fecha de ingreso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if (data){%>
+                        <% for (var i = 0; i < data.length; i++){%>
+                        <tr>
+                            <td><%=data[i].id_empleado%></td>
+                            <td><%=data[i].nombre%></td>
+                            <td><%=data[i].apellido_paterno%></td>
+                            <td><%=data[i].apellido_materno%></td>
+                            <td><%=data[i].nombre_turno%>: <%=data[i].hora_entrada%> , <%=data[i].hora_salida%> </td>
+                            <td><%=data[i].nombre_roll%></td>
+                            <td><%=data[i].fecha_ingreso%></td>
+                        </tr>
+                        <% }%>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer')%>

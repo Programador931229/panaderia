@@ -1,0 +1,40 @@
+<%-include('partials/_header')%>
+</header>
+<div class="container mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <h4>Registro de Productos</h4>
+                    </div>
+                    <form action="/producirPan" method="POST" style="background-color: white;">
+                        <div class="form-group mb-3">
+                            <label for="produccion">identificador de produccion</label>
+                            <input class="form-control" type="number" id="produccion" name="id_produccion" value="<%=id.id%>" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nombre">Nombre del producto</label>
+                            <select class="form-select dropdown-toggle" name="id_producto" id="nombre">
+                                <% for(const i in data){ %>
+                                    <option value="<%= data[i].id_producto%>"> <%=data[i].nombre_producto%> </option>    
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="cantidad">No. de Piezas a producir</label>
+                            <input class="form-control" type="number" step="0.0001" id="cantidad" name="cantidad_producto" placeholder="Existencia" required>
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Registrar</button>  
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <a href="/principal" class="btn btn-danger">Home</a>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%-include('partials/_footer')%>

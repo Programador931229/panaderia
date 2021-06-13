@@ -1,0 +1,37 @@
+<%-include('partials/_header')%>
+</header>
+<div class="container mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <h4>Edición de Usuario</h4>
+                    </div>
+                    <form action="/modificarUsuario" method="POST" style="background-color: white;">
+                        <div class="form-group mb-3">
+                            <label for="id" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Identificador de usuario</label>
+                            <input class="form-control" type="number" id="id" name="id_usuario" value="<%= data.id_usuario%>" required readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nom" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Nombre de usuario</label>
+                            <input class="form-control" type="text" id="nom" value="<%= data.nombre_usuario%>" name="nombre_usuario">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="correo" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Correo electrónico</label>
+                            <input class="form-control" type="text" id="correo" name="correo" value="<%= data.correo%>">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="clave" class="form-label" style="font-family: sans-serif; font-size: 14pt;">Contraseña</label>
+                            <input class="form-control" type="text" id="clave" name="clave">
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-success">Actualizar</button>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%-include('partials/_footer')%>

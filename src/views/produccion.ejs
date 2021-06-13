@@ -1,0 +1,29 @@
+<%-include('partials/_header')%>
+</header>
+<div class="container mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <h4>Registro de Producciones</h4>
+                    </div>
+                    <form action="/agregarProduccion" method="post" style="background-color: white;">
+                        <div class="form-group mb-3">
+                            <label for="id">Identificador de Empleado</label>
+                            <input class="form-control" type="number" id="id" name="id_empleado" value="<%=id%>" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="fecha">Fecha de producción</label>
+                            <input class="form-control" type="date" name="fecha_produccion" id="fecha" required>
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Registrar</button>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%-include('partials/_footer')%>

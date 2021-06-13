@@ -1,0 +1,34 @@
+<%- include('partials/_header')%>
+</header>
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-10">
+            <table class="table table-bordered table-hover text-center" style="background-color: white;">
+                <div class="text-center text-white bg-primary h5">
+                    <div class="text-center text-white bg-primary h5">
+                            <h4>Detalles de produccion</h4>
+                    </div>
+                </div>
+                <thead>
+                    <tr>
+                        <th>id de detalle</th>
+                        <th>Nombre de producto</th>
+                        <th>Cantidad de piezas realizada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if (data){%>
+                        <% for (var i = 0; i < data.length; i++){%>
+                        <tr>
+                            <td><%=data[i].id_detalle_produccion%></td>
+                            <td><%=data[i].nombre_producto%></td>
+                            <td><%=data[i].cantidad_producto%></td>
+                        </tr>
+                        <% }%>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer')%>

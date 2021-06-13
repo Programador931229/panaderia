@@ -1,0 +1,37 @@
+<%- include('partials/_header') %>
+</header>
+<div class="container mb-3">
+    <div class="row justify-content-center">
+        <div class="col col-lg-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-white bg-primary h5">
+                        <h4>Registro de Entradas</h4>
+                    </div>
+                    <form action="/agregarEntrada" method="post" style="background-color: white;">
+                        <div class="form-group mb-3">
+                            <label for="id">Identificador de Empleado</label>
+                            <input class="form-control" type="number" id="id" name="id_empleado" value="<%=data1%>" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="proveedor">Seleccionar Proveedor</label>
+                            <select class="form-select dropdown-toggle" name="id_proveedor" id="proveedor">
+                                <% for(const i in data2){ %>
+                                    <option value="<%= data2[i].id_proveedor%>"> <%=data2[i].nombre_empresa%> </option>    
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="fecha">Fecha de entrada</label>
+                            <input class="form-control" type="date" name="fecha_entrada" id="fecha" required>
+                        </div>
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary">Registrar</button>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/_footer') %>

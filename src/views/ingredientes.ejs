@@ -1,11 +1,12 @@
 <%- include('partials/_header') %>
+</header>
 <div class="container-fluid mb-3">
     <div class="row">
         <div class="col-sm-8">
             <table class="table table-bordered table-hover text-center" style="background-color: white;">
                 <div class="text-center text-white bg-primary h5">
                     <div class="text-center text-white bg-primary h5">
-                            <p>Ingredientes de <%= data3[0].nombre_producto%></p>
+                            <h4>Ingredientes de <%= data3[0].nombre_producto%></h4>
                     </div>
                 </div>
                 <thead>
@@ -37,7 +38,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="text-center text-white bg-primary h5">
-                        <p>Registro de Ingredientes</p>
+                        <h4>Registro de Ingredientes</h4>
                     </div>
                     <form action="/agregarIngrediente" method="post" style="background-color: white;">
                         <div class="form-group mb-3">

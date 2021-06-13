@@ -6,24 +6,24 @@
             <div class="card">
                 <div class="card-body">
                     <div class="text-center text-white bg-primary h5">
-                        <h4>Registro de Empleados</h4>
+                        <h4>Registro de Proveedores</h4>
                     </div>
-                    <form action="/agregarEmpleado" method="post">
+                    <form action="/agregarProveedor" method="post">
                         <div class="form-group mb-3">
                             <label for="persona">Identificador de persona</label>
-                            <input class="form-control" id="persona" name="id_persona" value="<%=data.id%>" placeholder="id del turno" readonly>
+                            <input class="form-control" id="persona" name="id_persona" value="<%=data1.id%>" placeholder="id del turno" readonly>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="turno">Seleccionar turno</label>
-                            <select class="form-select dropdown-toggle" name="id_turno" id="turno">
+                            <label for="empresa">Seleccionar empresa</label>
+                            <select class="form-select dropdown-toggle" name="id_empresa" id="empresa">
                                 <% for(const i in data2){ %>
-                                    <option value="<%= data2[i].id_turno%>"> <%=data2[i].nombre_turno%> , <%= data2[i].hora_entrada %> , <%= data2[i].hora_salida %>  </option>    
+                                    <option value="<%= data2[i].id_empresa%>"> <%=data2[i].nombre_empresa%> </option>    
                                 <%}%>
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="fecha">Fecha de ingreso</label>
-                            <input class="form-control" id="fecha" type="date" name="fecha_ingreso" placeholder="Fecha de ingreso">
+                            <label for="carga">Tipo de cargamento</label>
+                            <input class="form-control" id="carga" type="text" name="tipo_cargamento" placeholder="Tipo de carga">
                         </div>
                         <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
                             <button type="submit" class="btn btn-success">Siguiente</button>  

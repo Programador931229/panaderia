@@ -1,12 +1,14 @@
- const express = require('express');
- const path = require('path');
- const morgan = require('morgan');
- const mysql = require('mysql');
- const myconnection = require('express-myconnection');
- const bcryptjs = require('bcryptjs');
- const dotenv = require('dotenv');
- const sesion = require('express-session');
- 
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
+const mysql = require('mysql');
+const myconnection = require('express-myconnection');
+const bcryptjs = require('bcryptjs');
+const dotenv = require('dotenv');
+const sesion = require('express-session');
+
+dotenv.config({path:'./env/.env'});
+
  const app = express();
 
  //import Routes
@@ -21,14 +23,14 @@
  //Middlewares
  app.use(morgan('dev'));
  app.use(myconnection(mysql, {
-     host: 'localhost',
-     user: 'root',
-     password: '',
-     port: 3306,
-     database: 'panaderia'
+     host: process.env.DB_HOST,
+     user: process.env.DB_USER,
+     password: process.env.DB_PASSWORD,
+     port: process.env.DB_PORT,
+     database: process.env.DB_DATABASE
  }, 'single'));
  app.use(express.urlencoded({extended: false}));
- dotenv.config({path:'./env/.env'});
+ 
  
  app.use(sesion({
      secret: 'secret',
@@ -44,5 +46,5 @@
  
  // starting the server
  app.listen(app.get('port'), () => {
-     console.log('Server en puerto 3000');
+     console.log('http://localhost:3000/');
  });

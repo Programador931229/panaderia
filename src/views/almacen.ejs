@@ -1,10 +1,11 @@
 <%- include('partials/_header')%>
+</header>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8">
             <table class="table table-bordered table-hover text-center" style="background-color: white;">
                 <div class="text-center text-white bg-primary h5">
-                    <p>Lista de materias primas</p>
+                    <h4>Lista de materias primas</h4>
                 </div>
                 <thead>
                     <tr>
@@ -37,17 +38,17 @@
             <div class="card">
                 <div class="card-body">
                     <div class="text-center text-white bg-primary h5">
-                        <p>Registro de Materias Primas</p>
+                        <h4>Registro de Materias Primas</h4>
                     </div>
                     <form action="/agregarMateria" method="post" style="background-color: white;">
                         <div class="form-group mb-3">
                             <input class="form-control" type="text" name="nombre_materia_prima" placeholder="Nombre de materia prima">
                         </div>
                         <div class="form-group mb-3">
-                            <input class="form-control" type="number" name="existencia_materia_prima" placeholder="Existencia">
+                            <input class="form-control" type="number" step="0.0001" name="existencia_materia_prima" placeholder="Existencia">
                         </div>
                         <div class="form-group mb-3">
-                            <input class="form-control" type="number" name="precio_unitario" placeholder="Precio unitario">
+                            <input class="form-control" type="number" step="0.0001" name="precio_unitario" placeholder="Precio unitario">
                         </div>
                         <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
                             <button type="submit" class="btn btn-primary">Registrar</button>  

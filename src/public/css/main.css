@@ -15,6 +15,10 @@ nav{
     background-color:rgb(160, 64, 0);
 }
 
+p{
+    font-size: 14pt;
+}
+
 .img{
     height: 450px;
 }
